@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function total_price(product_id) {
+    var ingredientDiv = document.querySelectorAll("#product_" + product_id + " .ingredient");
+    var total_sum = 0;
+    for (var i = 0; i < ingredientDiv.length; i++) {
+        ing_inputs = ingredientDiv[i].querySelectorAll("input");
+        total_sum += ing_inputs[0].value * ing_inputs[2].value;
+    }
+    var product_price = document.getElementById("product_price_" + product_id).value;
+    total_sum += parseFloat(product_price);
+    var span_element = document.getElementById("total_price_" + product_id);
+    span_element.innerHTML = total_sum.toFixed(2) + " руб.";
+}

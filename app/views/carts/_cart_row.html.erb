@@ -1,0 +1,39 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <h4><%= product.name %></h4>
+      <% unless order_item.ingredients.empty? %>
+          <h5>
+            <b>Дополнительные Ингредиенты:</b>
+            <% order_item.ingredients.each do |i| %>
+                <%= i.name + ", "%>
+            <% end %>
+          </h5>
+      <% end %>
+    </div>
+    <div class="col-xs-4">
+
+      <%= form_for order_item, remote: true do |f| %>
+          <h4 class="text-right">Стоимость:
+            <span style="color: green" id="<%= "total_price_%p" % product.id %>">
+            <%= number_to_currency order_item.total_price, locale: :ru %>
+          </span>
+          </h4>
+          <div class="row">
+            <div class="col-xs-4">
+              <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
+              <%= f.hidden_field :product_id, value: product.id %>
+            </div>
+            <div class="col-xs-8 text-right">
+              <div class="btn-group">
+                <%= f.submit "Update", class: "btn btn-primary" %>
+                <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

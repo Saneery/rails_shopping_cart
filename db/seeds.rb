@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Product.delete_all
-Product.create! id: 1, name: "Лапша в соусе терияки", price: 200, active: true, image_path: "assets/images/1.jpg"
-Product.create! id: 2, name: "Лапша в сливочном соусе", price: 100, active: true, image_path: "assets/images/2.jpg"
-Product.create! id: 3, name: "Рис в соусе терияки", price: 150, active: true, image_path: "assets/images/3.jpg"
+Product.create! id: 1, name: "Лапша в соусе терияки", price: 200, image_path: "1.jpg"
+Product.create! id: 2, name: "Лапша в сливочном соусе", price: 100, image_path: "2.jpg"
+Product.create! id: 3, name: "Рис в соусе терияки", price: 150, image_path: "3.jpg"
 
 Ingredient.delete_all
 Ingredient.create! id: 1, name: "Спаржа", ingredient_type: "topping", price: 20
