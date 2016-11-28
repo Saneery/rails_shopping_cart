@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.deciaml{12,3} :total
+      t.decimal :price, precision: 12, scale: 3
 
       t.timestamps null: false
     end
