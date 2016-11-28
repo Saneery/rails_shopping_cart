@@ -21,7 +21,7 @@ class OrderItem < ActiveRecord::Base
   end
 
   def total_price
-    unit_price * quantity + ingredients_price
+    (unit_price + ingredients_price) * quantity
   end
 
   def ingredients_price

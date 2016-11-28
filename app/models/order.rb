@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   before_save :update_price
 
   def price
-    order_items.collect {|oi| oi.valid? ? (oi.quantity * oi.total_price) : 0}.sum
+    order_items.collect {|oi| oi.valid? ? oi.total_price : 0}.sum
   end
 
   private
