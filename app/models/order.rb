@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   end
 
   private
-  def update_subtotal
+  def update_price
     self[:price] = price
   end
 end
